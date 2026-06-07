@@ -16,6 +16,8 @@ seed: 42
 experiment_name: carra2_autoencoder_no_mask
 
 datamodule:
+  data_path: /gws/pw/j07/aria_giant/wip/draft/acocac/autocast/greenland/input
+  normalization_path: /gws/pw/j07/aria_giant/wip/draft/acocac/autocast/greenland/input
   autoencoder_mode: true
   batch_size: 8
 
