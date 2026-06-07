@@ -1,0 +1,12 @@
+_target_: autocast.data.datamodule.SpatioTemporalDataModule
+data_path: /Users/acoca/Local/turing/giant/repos/autocast/datasets/carra2/processed
+batch_size: 4
+n_steps_input: 2
+n_steps_output: 4
+stride: 1
+verbose: false
+use_normalization: true
+normalization_path: /Users/acoca/Local/turing/giant/repos/autocast/datasets/carra2/processed/stats.yaml
+output_channel_idxs: [3]
+num_workers: 3
+doy_offset: 1
