@@ -1,5 +1,5 @@
 # @package _global_
-# Autoencoder for sea ice: encoder takes SIC only (1ch), decoder reconstructs SIC (1ch).
+# Autoencoder for t2m on CARRA2, no land mask, no constant fields.
 # No land mask / constant_fields used.
 defaults:
   - optional simulator: null
