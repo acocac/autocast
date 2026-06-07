@@ -1,6 +1,5 @@
 # @package _global_
 # Autoencoder for t2m on CARRA2, no land mask, no constant fields.
-# No land mask / constant_fields used.
 defaults:
   - optional simulator: null
   - optional optimizer: null
