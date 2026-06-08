@@ -21,8 +21,8 @@ dependencies = [
     "neuraloperator>=2.0.0",
     "the-well>=1.1.0",
     "timm>=0.9",
-    "torch>=2.9.1",
-    "torchvision>=0.26.0",
+    "torch==2.11.0",
+    "torchvision==0.26.0",
     "wandb>=0.18.7",
     "nvidia-ml-py>=13.595.45",
 ]
