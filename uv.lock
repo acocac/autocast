@@ -281,7 +281,7 @@ dev = [
 requires-dist = [
     { name = "autoemulate", git = "https://github.com/alan-turing-institute/autoemulate.git" },
     { name = "autosim", git = "https://github.com/alan-turing-institute/autosim.git" },
-    { name = "azula", specifier = "==0.10.0" },
+    { name = "azula", specifier = ">=0.7.0" },
     { name = "beartype", specifier = ">=0.22.8" },
     { name = "einops", specifier = ">=0.8.1" },
     { name = "h5py", specifier = ">=3.15.1" },
