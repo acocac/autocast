@@ -10,7 +10,7 @@ requires-python = ">=3.11,<3.13"
 dependencies = [
     "autoemulate>=1.2.0",
     "autosim",
-    "azula>=0.7.0",
+    "azula==0.10.0",
     "beartype>=0.22.8",
     "einops>=0.8.1",
     "heavyball==1.4.3",
