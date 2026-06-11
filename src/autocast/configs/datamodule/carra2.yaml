@@ -9,4 +9,4 @@ use_normalization: true
 normalization_path: /Users/acoca/Local/turing/giant/repos/autocast/datasets/carra2/processed/stats.yaml
 channel_idxs: [3]
 num_workers: 3
-doy_offset: 1
+#doy_offset: 1
