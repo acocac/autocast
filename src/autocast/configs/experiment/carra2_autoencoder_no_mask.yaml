@@ -27,7 +27,7 @@ logging:
 model:
   encoder:
     in_channels: null
-    with_constants: false
+#    with_constants: false
   decoder:
     out_channels: null
 
