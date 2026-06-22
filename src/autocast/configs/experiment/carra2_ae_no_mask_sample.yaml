@@ -1,0 +1,42 @@
+# @package _global_
+# Autoencoder for t2m on CARRA2, no land mask, no constant fields.
+defaults:
+- optional simulator: null
+- optional optimizer: null
+- optional experiment: null
+- optional local_experiment: null
+- override /datamodule: carra2_sample
+- override /model: autoencoder
+- override /trainer: default
+- override /logging: wandb
+- _self_
+
+seed: 42
+experiment_name: carra2_ae_no_mask
+
+datamodule:
+  data_path: ${hydra:runtime.cwd}/data/sample_1024_512
+  normalization_path: ${hydra:runtime.cwd}/data/sample_1024_512/stats.yaml
+  autoencoder_mode: true
+  batch_size: 8
+  use_normalization: false
+
+logging:
+  wandb:
+    enabled: true
+
+model:
+  encoder:
+    in_channels: null
+  #    with_constants: false
+  decoder:
+    out_channels: null
+
+output:
+  checkpoint_name: carra2_autoencoder_no_mask.ckpt
+  checkpoint_path: null
+  save_config: true
+  skip_test: false
+
+trainer:
+  max_epochs: 5
