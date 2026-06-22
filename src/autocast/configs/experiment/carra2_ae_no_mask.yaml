@@ -1,0 +1,41 @@
+# @package _global_
+# Autoencoder for t2m on CARRA2, no land mask, no constant fields.
+defaults:
+- optional simulator: null
+- optional optimizer: null
+- optional experiment: null
+- optional local_experiment: null
+- override /datamodule: carra2
+- override /model: autoencoder
+- override /trainer: default
+- override /logging: wandb
+- _self_
+
+seed: 42
+experiment_name: carra2_autoencoder_no_mask
+
+datamodule:
+  data_path: /gws/pw/j07/aria_giant/wip/draft/acocac/autocast/greenland/input
+  normalization_path: /gws/pw/j07/aria_giant/wip/draft/acocac/autocast/greenland/input
+  autoencoder_mode: true
+  batch_size: 8
+
+logging:
+  wandb:
+    enabled: true
+
+model:
+  encoder:
+    in_channels: null
+    with_constants: false
+  decoder:
+    out_channels: null
+
+output:
+  checkpoint_name: carra2_autoencoder_no_mask.ckpt
+  checkpoint_path: null
+  save_config: true
+  skip_test: false
+
+trainer:
+  max_epochs: 20
