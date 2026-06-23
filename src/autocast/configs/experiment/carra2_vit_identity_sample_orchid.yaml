@@ -1,0 +1,52 @@
+# @package _global_
+defaults:
+- override /datamodule: carra2_sample
+- override /encoder@model.encoder: identity
+- override /decoder@model.decoder: identity
+- override /processor@model.processor: vit_azula_small
+- override /eval: eval
+- _self_
+
+experiment_name: vit_carra2
+
+datamodule:
+  batch_size: 4
+  data_path: /gws/pw/j07/aria_giant/wip/draft/acocac/autocast/greenland/input/sample_1024_512_flatten
+  normalization_path: /gws/pw/j07/aria_giant/wip/draft/acocac/autocast/greenland/input/sample_1024_512_flatten/stats.yaml
+
+logging:
+  wandb:
+    enabled: true
+
+optimizer:
+  learning_rate: 0.0001
+
+model:
+  train_in_latent_space: false
+  loss_func:
+    _target_: torch.nn.MSELoss
+  encoder:
+    in_channels: 1
+  decoder:
+    in_channels: 1
+  processor:
+    include_global_cond: false
+    out_channels: 1
+    hidden_dim: 512
+    num_heads: 8
+    n_layers: 12
+    # drop_path: 0.1
+    # patch_size: (100, 307) # use default hierarchical patch embedding
+    patch_size: 128 # use default hierarchical patch embedding
+
+trainer:
+  max_epochs: 5
+  callbacks:
+  # Progress snapshots every ~5% of optimizer steps. Keeping all of them makes
+  # it practical to inspect how calibration evolves across the run.
+  - _target_: autocast.callbacks.checkpoint.ProgressModelCheckpoint
+    save_top_k: -1
+    every_n_train_steps_fraction: 0.5
+    save_last: true
+    filename: "snapshot-{progress_token}-{epoch:04d}-{step:08d}"
+    auto_insert_metric_name: false
