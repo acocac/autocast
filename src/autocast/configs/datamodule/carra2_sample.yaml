@@ -7,7 +7,7 @@ stride: 1
 verbose: false
 use_normalization: true
 normalization_path: ${hydra:runtime.cwd}/data/sample2/stats.yaml
-channel_idxs: [ 3 ]
-num_workers: 3
+channel_idxs: [ 2 ]
+num_workers: 2
 
 #doy_offset: 1
