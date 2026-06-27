@@ -7,7 +7,7 @@ defaults:
 - override /eval: eval
 - _self_
 
-experiment_name: swim_small_carra2
+experiment_name: swin_large_carra2
 
 datamodule:
   batch_size: 4
